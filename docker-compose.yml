@@ -5,12 +5,12 @@ services:
     container_name: mysql_db
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: gestion_apprenants
-      MYSQL_USER: user
-      MYSQL_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
     ports:
-      - "3307:3306"
+      - "${DB_PORT}:3306"
     volumes:
       - mysql_data:/var/lib/mysql
 
@@ -19,11 +19,11 @@ services:
     container_name: gestion_apprenants_app
     restart: always
     ports:
-      - "3000:3000"
+      - "${PORT}:3000"
     depends_on:
       - db
     environment:
-      DATABASE_URL: "mysql://kalidou:kalidou123@db:3306/gestion_apprenants"
+      DATABASE_URL: mysql://${MYSQL_USER}:${MYSQL_PASSWORD}@db:${DB_PORT}/${MYSQL_DATABASE}
     volumes:
       - .:/app
       - /app/node_modules
