@@ -1,5 +1,5 @@
-export declare const formatSuccess: (data: any, code?: number, message?: string) => {
-    data: any;
+export declare const formatSuccess: (data: object | null, code?: number, message?: string) => {
+    data: object | null;
     statut: string;
     code: number;
     message: string;
