@@ -1,4 +1,5 @@
 import { Router } from "express";
+
 import { PromoController } from "../controllers/promo.controller.js";
 
 import { createPromoSchema } from "../validators/promo.validator.js";
