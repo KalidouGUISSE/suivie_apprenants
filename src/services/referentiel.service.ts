@@ -1,0 +1,17 @@
+
+import prisma  from "./prismaService.js";
+export class ReferentielService{
+
+    static async getAll(){
+        return (await prisma.referentiel.findMany())
+    }
+    
+    static async getCompetencesByReferentiel(idRerentiel:number){
+        return prisma.referentiel.findUnique({
+            where:{id:idRerentiel},
+            include:{competences:true}
+
+        })
+
+    }
+}

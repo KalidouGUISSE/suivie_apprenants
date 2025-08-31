@@ -5,7 +5,7 @@ import niveauRoutes from "./routes/niveau.routes.js";
 import promoRoutes from "./routes/promo.routes.js";
 import competenceRoutes from "./routes/competence.routes.js";
 
-
+import refentielRoutes from "./routes/referentiel.route.js"
 
 const app = express();
 app.use(express.json());
@@ -18,6 +18,8 @@ app.use("/promos", promoRoutes);
 
 
 app.use("/competences", competenceRoutes)
+
+app.use("/referentiels",refentielRoutes)
 
 app.get("/", (req,res) =>{
     res.send('kali');
