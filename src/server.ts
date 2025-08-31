@@ -5,6 +5,10 @@ import profilSortieRoutes from "./routes/profilSortie.routes.js";
 const app = express();
 app.use(express.json());
 
+app.get("/", (req, res) => {
+  res.json({ message: "API Gestion Apprenants", version: "1.0.0" });
+});
+
 app.use("/promos", promoRoutes);
 app.use("/profil-sortie", profilSortieRoutes);
 
