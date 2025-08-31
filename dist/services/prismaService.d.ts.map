@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 {"version":3,"file":"prismaService.d.ts","sourceRoot":"","sources":["../../src/services/prismaService.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,YAAY,EAAE,MAAM,gBAAgB,CAAC;AAE9C,QAAA,MAAM,MAAM,gIAAqB,CAAC;AAElC,eAAe,MAAM,CAAC"}
+=======
+{"version":3,"file":"prismaService.d.ts","sourceRoot":"","sources":["../../src/services/prismaService.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,YAAY,EAAE,MAAM,gBAAgB,CAAC;AAE9C,QAAA,MAAM,MAAM,gIAAqB,CAAC;AAClC,eAAe,MAAM,CAAC"}
+>>>>>>> 7cce4fc1f9d7c0d3a046be61d9965a32f61dc7cd

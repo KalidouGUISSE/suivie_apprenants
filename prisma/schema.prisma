@@ -19,3 +19,11 @@ id      Int    @id @default(autoincrement())
 libelle String
 rang    Int
 }
+model Promo {
+  id        Int      @id @default(autoincrement())
+  libelle   String
+  dateDebut DateTime
+  dateFin   DateTime
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}

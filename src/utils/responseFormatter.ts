@@ -1,25 +1,6 @@
-export const formatSuccess = (
-  data: any,
-  status: number = 200,
-  message: string = "Succès"
-) => {
-  return {
-    status,
-    success: true,
-    message,
-    data,
-  };
-};
-
-export const formatError = (
-  status: number,
-  message: string,
-  errors: any = null
-) => {
-  return {
-    status,
-    success: false,
-    message,
-    errors,
-  };
-};
+export const formatSuccess = (data: object | null, code = 200, message = "ok") => ({
+  data, statut: "success", code, message
+});
+export const formatError = (code: number, message: string) => ({
+  data: null, statut: "error", code, message
+});
