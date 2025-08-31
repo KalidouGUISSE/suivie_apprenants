@@ -1,5 +1,1 @@
-<<<<<<< HEAD
-{"version":3,"file":"responseFormatter.d.ts","sourceRoot":"","sources":["../../src/utils/responseFormatter.ts"],"names":[],"mappings":"AAAA,eAAO,MAAM,aAAa,GACxB,MAAM,GAAG,EACT,SAAQ,MAAY,EACpB,UAAS,MAAiB;;;;;CAQ3B,CAAC;AAEF,eAAO,MAAM,WAAW,GACtB,QAAQ,MAAM,EACd,SAAS,MAAM,EACf,SAAQ,GAAU;;;;;CAQnB,CAAC"}
-=======
 {"version":3,"file":"responseFormatter.d.ts","sourceRoot":"","sources":["../../src/utils/responseFormatter.ts"],"names":[],"mappings":"AAAA,eAAO,MAAM,aAAa,GAAI,MAAM,MAAM,GAAG,IAAI,EAAE,aAAU,EAAE,gBAAc;;;;;CAE3E,CAAC;AACH,eAAO,MAAM,WAAW,GAAI,MAAM,MAAM,EAAE,SAAS,MAAM;;;;;CAEvD,CAAC"}
->>>>>>> 7cce4fc1f9d7c0d3a046be61d9965a32f61dc7cd
