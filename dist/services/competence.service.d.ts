@@ -2,9 +2,9 @@ import type { CreateCompetenceInput } from "../validators/competence.validator.j
 export declare class CompetenceService {
     static createCompetence(data: CreateCompetenceInput): Promise<{
         niveaux: {
-            id: number;
-            libellet: string;
+            libelle: string;
             rang: number;
+            id: number;
         }[];
     } & {
         libelle: string;
@@ -12,9 +12,9 @@ export declare class CompetenceService {
     }>;
     static getAllCompetences(): Promise<({
         niveaux: {
-            id: number;
-            libellet: string;
+            libelle: string;
             rang: number;
+            id: number;
         }[];
     } & {
         libelle: string;
@@ -22,9 +22,9 @@ export declare class CompetenceService {
     })[]>;
     static getCompetenceById(id: number): Promise<({
         niveaux: {
-            id: number;
-            libellet: string;
+            libelle: string;
             rang: number;
+            id: number;
         }[];
     } & {
         libelle: string;
@@ -32,9 +32,9 @@ export declare class CompetenceService {
     }) | null>;
     static updateCompetence(id: number, data: CreateCompetenceInput): Promise<{
         niveaux: {
-            id: number;
-            libellet: string;
+            libelle: string;
             rang: number;
+            id: number;
         }[];
     } & {
         libelle: string;
@@ -45,9 +45,9 @@ export declare class CompetenceService {
         id: number;
     }>;
     static getNiveauxByCompetenceId(competenceId: number): Promise<{
-        id: number;
-        libellet: string;
+        libelle: string;
         rang: number;
+        id: number;
     }[]>;
 }
 //# sourceMappingURL=competence.service.d.ts.map

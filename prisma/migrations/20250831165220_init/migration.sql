@@ -1,20 +1,18 @@
-/*
-  Warnings:
-
-  - You are about to drop the column `libelle` on the `Niveau` table. All the data in the column will be lost.
-  - A unique constraint covering the columns `[libellet]` on the table `Niveau` will be added. If there are existing duplicate values, this will fail.
-  - Added the required column `libellet` to the `Niveau` table without a default value. This is not possible if the table is not empty.
-
-*/
--- AlterTable
-ALTER TABLE `Niveau` DROP COLUMN `libelle`,
-    ADD COLUMN `libellet` VARCHAR(191) NOT NULL;
-
 -- CreateTable
 CREATE TABLE `Competence` (
     `id` INTEGER NOT NULL AUTO_INCREMENT,
     `libelle` VARCHAR(191) NOT NULL,
 
+    PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+-- CreateTable
+CREATE TABLE `Niveau` (
+    `id` INTEGER NOT NULL AUTO_INCREMENT,
+    `libelle` VARCHAR(191) NOT NULL,
+    `rang` INTEGER NOT NULL,
+
+    UNIQUE INDEX `Niveau_libelle_key`(`libelle`),
     PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
@@ -55,9 +53,6 @@ CREATE TABLE `_ReferentielCompetences` (
     UNIQUE INDEX `_ReferentielCompetences_AB_unique`(`A`, `B`),
     INDEX `_ReferentielCompetences_B_index`(`B`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-
--- CreateIndex
-CREATE UNIQUE INDEX `Niveau_libellet_key` ON `Niveau`(`libellet`);
 
 -- AddForeignKey
 ALTER TABLE `_CompetenceToNiveau` ADD CONSTRAINT `_CompetenceToNiveau_A_fkey` FOREIGN KEY (`A`) REFERENCES `Competence`(`id`) ON DELETE CASCADE ON UPDATE CASCADE;
