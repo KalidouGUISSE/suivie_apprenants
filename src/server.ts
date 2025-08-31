@@ -8,9 +8,7 @@ app.use("/promos", promoRoutes);
 
 
 
-
-// app.listen(3000, () => console.log("Server running http://localhost:3000"));
 const PORT = 3010;
 app.listen(PORT, () => {
-  console.log(`🚀 Server running at http://localhost:${PORT}`);
+  console.log(` Server running at http://localhost:${PORT}`);
 });

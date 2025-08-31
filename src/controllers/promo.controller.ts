@@ -1,19 +1,15 @@
 import type { Request, Response } from "express";
 import { PromoService } from "../services/promo.service.js";
 import { formatSuccess, formatError } from "../utils/responseFormatter.js";
-import { createPromoSchema } from "../validators/promo.validator.js";
+
 export class PromoController   {
   static async create(req: Request, res: Response) {
-    const result = createPromoSchema.safeParse(req.body);
-  if (!result.success) {
-    return res.status(400).json(formatError(400, 'erreur de création'));
-  }
-  try {
-    const promo = await PromoService.createPromo(result.data);
-    return res.status(201).json(formatSuccess(promo, 201, "Promo créée avec succès"));
-  } catch (err: any) {
-    return res.status(500).json(formatError(500, err.message || "Erreur serveur"));
-  }
+    try {
+      const promo = await PromoService.createPromo(req.body);
+      return res.status(201).json(formatSuccess(promo, 201, "Promo créée avec succès"));
+    } catch (err: any) {
+      return res.status(500).json(formatError(500, err.message || "Erreur serveur"));
+    }
   }
   static async getAll(req: Request, res: Response) {
     const promos = await PromoService.getAllPromos();
