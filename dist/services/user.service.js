@@ -11,14 +11,27 @@ export class UserService {
                 telephone: data.telephone,
                 role: data.role,
                 adresse: data.adresse,
+                profilId: data.profilId,
+            },
+            include: {
+                profil: true,
             },
         });
     }
     static async getAll() {
-        return prisma.users.findMany();
+        return prisma.users.findMany({
+            include: {
+                profil: true,
+            },
+        });
     }
     static async getOne(id) {
-        return prisma.users.findUnique({ where: { id } });
+        return prisma.users.findUnique({
+            where: { id },
+            include: {
+                profil: true,
+            },
+        });
     }
     static async update(id, data) {
         return prisma.users.update({
@@ -32,11 +45,20 @@ export class UserService {
                 telephone: data.telephone,
                 role: data.role,
                 adresse: data.adresse,
+                profilId: data.profilId,
+            },
+            include: {
+                profil: true,
             },
         });
     }
     static async delete(id) {
-        return prisma.users.delete({ where: { id } });
+        return prisma.users.delete({
+            where: { id },
+            include: {
+                profil: true,
+            },
+        });
     }
 }
 //# sourceMappingURL=user.service.js.map

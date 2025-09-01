@@ -1,5 +1,11 @@
 export declare class UserService {
     static create(data: any): Promise<{
+        profil: {
+            libelle: string;
+            id: number;
+        };
+    } & {
+        id: number;
         nom: string;
         prenom: string;
         email: string;
@@ -10,9 +16,15 @@ export declare class UserService {
         adresse: string | null;
         createdAt: Date;
         updatedAt: Date;
-        id: number;
+        profilId: number;
     }>;
-    static getAll(): Promise<{
+    static getAll(): Promise<({
+        profil: {
+            libelle: string;
+            id: number;
+        };
+    } & {
+        id: number;
         nom: string;
         prenom: string;
         email: string;
@@ -23,9 +35,15 @@ export declare class UserService {
         adresse: string | null;
         createdAt: Date;
         updatedAt: Date;
+        profilId: number;
+    })[]>;
+    static getOne(id: number): Promise<({
+        profil: {
+            libelle: string;
+            id: number;
+        };
+    } & {
         id: number;
-    }[]>;
-    static getOne(id: number): Promise<{
         nom: string;
         prenom: string;
         email: string;
@@ -36,9 +54,15 @@ export declare class UserService {
         adresse: string | null;
         createdAt: Date;
         updatedAt: Date;
-        id: number;
-    } | null>;
+        profilId: number;
+    }) | null>;
     static update(id: number, data: any): Promise<{
+        profil: {
+            libelle: string;
+            id: number;
+        };
+    } & {
+        id: number;
         nom: string;
         prenom: string;
         email: string;
@@ -49,9 +73,15 @@ export declare class UserService {
         adresse: string | null;
         createdAt: Date;
         updatedAt: Date;
-        id: number;
+        profilId: number;
     }>;
     static delete(id: number): Promise<{
+        profil: {
+            libelle: string;
+            id: number;
+        };
+    } & {
+        id: number;
         nom: string;
         prenom: string;
         email: string;
@@ -62,7 +92,7 @@ export declare class UserService {
         adresse: string | null;
         createdAt: Date;
         updatedAt: Date;
-        id: number;
+        profilId: number;
     }>;
 }
 //# sourceMappingURL=user.service.d.ts.map

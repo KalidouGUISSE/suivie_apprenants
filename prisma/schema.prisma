@@ -53,16 +53,11 @@ model Referentiel {
 
 
 
-
-=======
-
-
 model ProfilSortie {
   id      Int    @id @default(autoincrement())
   libelle String
 }
->>>>>>> 6d6acaedf9c963ef92e652f3950ec9d0a124a6ac
-=======
+
 
 model Users {
   id        Int      @id @default(autoincrement())
@@ -76,5 +71,17 @@ model Users {
   adresse   String?
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+
+  // relation avec Profil
+  profilId  Int
+  profil    Profil   @relation(fields: [profilId], references: [id])
 }
->>>>>>> 04683e3bf7822c808d5d428f53c27337d073c9f5
+
+model Profil {
+  id      Int      @id @default(autoincrement())
+  libelle String   @unique
+
+  // 1 profil peut avoir plusieurs users
+  users   Users[]
+}
+

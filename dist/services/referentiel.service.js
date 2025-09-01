@@ -9,5 +9,18 @@ export class ReferentielService {
             include: { competences: true }
         });
     }
+    static async addCompetenceToReferentiel(req, res) {
+        const id = Number(req.params.id);
+        const { competences } = req.body;
+        return await prisma.referentiel.update({
+            where: { id },
+            data: {
+                competences: {
+                    connect: competences.map((id) => ({ id: id }))
+                }
+            },
+            include: { competences: true }
+        });
+    }
 }
 //# sourceMappingURL=referentiel.service.js.map
