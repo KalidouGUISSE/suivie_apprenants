@@ -35,6 +35,7 @@ model Promo {
   updatedAt DateTime @updatedAt
 }
 
+
 model Referentiel {
   id           Int           @id @default(autoincrement())
   libelle      String
@@ -61,3 +62,19 @@ model ProfilSortie {
   libelle String
 }
 >>>>>>> 6d6acaedf9c963ef92e652f3950ec9d0a124a6ac
+=======
+
+model Users {
+  id        Int      @id @default(autoincrement())
+  nom       String
+  prenom    String
+  email     String   @unique
+  login     String   @unique
+  password  String
+  telephone String?
+  role      String
+  adresse   String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+>>>>>>> 04683e3bf7822c808d5d428f53c27337d073c9f5
