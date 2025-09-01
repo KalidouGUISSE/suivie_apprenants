@@ -9,17 +9,20 @@ app.use(express.json());
 
 app.use("/users", userRoutes);
 app.use("/promos", promoRoutes);
-app.use("/api/users", userRoutes);
 
-app.get("/test", (req, res) => {
-  res.json({ message: "User route OK" });
-});
 
-app.get("/ping", (req, res) => {
-  res.send("pong");
-});
 
-const PORT = process.env.PORT || 3000;
+
+
+
+// <<<<<<< HEAD
+// const PORT = process.env.PORT || 3000;
+// app.listen(PORT, () => {
+//   console.log(`Server running at http://localhost:${PORT}`);
+// });
+
+const PORT = 3010;
 app.listen(PORT, () => {
-  console.log(`Server running at http://localhost:${PORT}`);
+  console.log(` Server running at http://localhost:${PORT}`);
 });
+

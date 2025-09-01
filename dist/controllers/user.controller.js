@@ -3,6 +3,7 @@ export class UserController {
     static async create(req, res) {
         try {
             const user = await UserService.create(req.body);
+            console.log(user);
             res.status(201).json(user);
         }
         catch (error) {
@@ -21,12 +22,10 @@ export class UserController {
     static async getOne(req, res) {
         try {
             const user = await UserService.getOne(Number(req.params.id));
-            if (!user)
-                return res.status(404).json({ message: "User not found" });
             res.json(user);
         }
         catch (error) {
-            res.status(500).json({ message: error.message });
+            res.status(404).json({ message: error.message });
         }
     }
     static async update(req, res) {
@@ -44,7 +43,7 @@ export class UserController {
             res.status(204).send();
         }
         catch (error) {
-            res.status(500).json({ message: error.message });
+            res.status(400).json({ message: error.message });
         }
     }
 }
