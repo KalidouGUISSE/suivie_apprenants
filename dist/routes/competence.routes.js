@@ -1,7 +1,7 @@
 import { Router } from "express";
 import { CompetenceController } from "../controllers/competence.controller.js";
 import { createCompetenceSchema } from "../validators/competence.validator.js";
-import { validateBody } from "../middlewares/validateRequest.js";
+import { validateBody } from "../middlewares/validation.middleware.js";
 const router = Router();
 // router.post("/", CompetenceController.create);
 router.post("/", validateBody(createCompetenceSchema), CompetenceController.create);

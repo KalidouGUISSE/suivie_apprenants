@@ -6,4 +6,4 @@ export declare class ProfileController {
     static updateProfile(req: Request, res: Response): Promise<Response<any, Record<string, any>>>;
     static deleteProfile(req: Request, res: Response): Promise<Response<any, Record<string, any>>>;
 }
-//# sourceMappingURL=profile.controller.d.ts.map
+//# sourceMappingURL=profil.controller.d.ts.map

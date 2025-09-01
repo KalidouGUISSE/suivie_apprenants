@@ -1,5 +1,5 @@
-import { ProfileService } from "../services/profile.service.js";
-import { createProfileSchema } from "../validators/profile.validator.js";
+import { ProfileService } from "../services/profil.service.js";
+import { createProfileSchema } from "../validators/profil.validator.js";
 import { formatSuccess, formatError } from "../utils/responseFormatter.js";
 export class ProfileController {
     static async getProfiles(_, res) {
@@ -59,4 +59,4 @@ export class ProfileController {
         }
     }
 }
-//# sourceMappingURL=profile.controller.js.map
+//# sourceMappingURL=profil.controller.js.map

@@ -15,6 +15,7 @@ import refentielRoutes from "./routes/referentiel.route.js"
 
 import profilSortieRoutes from "./routes/profilSortie.routes.js";
 
+import profileRoute from "./routes/profil.routes.js";
 
 const app = express();
 
@@ -38,9 +39,11 @@ app.use("/competences", competenceRoutes)
 
 app.use("/referentiels",refentielRoutes)
 
-app.get("/", (req,res) =>{
-    res.send('kali');
-})
+app.use("/profiles",profileRoute)
+
+// app.get("/", (req,res) =>{
+//     res.send('kali');
+// })
 
 
 // const PORT = process.env.PORT || 3000;
