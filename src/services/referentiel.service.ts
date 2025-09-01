@@ -1,5 +1,6 @@
 
 import prisma  from "./prismaService.js";
+import type { Request,Response } from "express";
 export class ReferentielService{
 
     static async getAll(){
@@ -12,6 +13,24 @@ export class ReferentielService{
             include:{competences:true}
 
         })
+
+    }
+
+    static async addCompetenceToReferentiel(req:Request,res:Response)
+    {
+        const id = Number(req.params.id)
+        const {competences} = req.body
+       return await prisma.referentiel.update(
+        {
+            where:{id},
+            data:{
+                competences:{
+                    connect:competences.map((id:number) => ({ id: id }))
+                }
+            },
+             include: { competences: true }
+        }
+       )
 
     }
 }
