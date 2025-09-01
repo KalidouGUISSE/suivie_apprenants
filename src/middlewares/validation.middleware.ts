@@ -15,4 +15,3 @@ export const validateBody = (schema: z.ZodSchema) => {
     next();
   };
 };
-
