@@ -1,14 +1,14 @@
 import type { Request, Response } from "express";
-// Importe les types Request et Response d’Express pour typer les paramètres des méthodes.
+
 
 import { TagService } from "../services/tag.service.js";
-// Importe le service TagService qui contient la logique métier pour manipuler les tags.
+
 
 import { formatSuccess, formatError } from "../utils/responseFormatter.js";
-// Importe des fonctions utilitaires pour formater les réponses envoyées au client.
+
 
 export class TagController {
-// Déclare une classe qui regroupe les méthodes pour chaque route du CRUD Tag.
+
 
   static async create(req: Request, res: Response) {
     try {
