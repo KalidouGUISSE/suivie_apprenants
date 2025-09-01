@@ -34,6 +34,7 @@ model Promo {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
+
 model Referentiel {
   id           Int           @id @default(autoincrement())
   libelle      String
@@ -52,3 +53,11 @@ model Referentiel {
 
 
 
+=======
+
+
+model ProfilSortie {
+  id      Int    @id @default(autoincrement())
+  libelle String
+}
+>>>>>>> 6d6acaedf9c963ef92e652f3950ec9d0a124a6ac
