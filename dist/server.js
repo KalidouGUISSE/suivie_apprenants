@@ -1,3 +1,4 @@
+console.log("Serveur lancé");
 import express from "express";
 import dotenv from "dotenv";
 import niveauRoutes from "./routes/niveau.routes.js";

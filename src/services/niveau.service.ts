@@ -10,9 +10,13 @@ export class NiveauService {
       },
     });
   }
-
-  static async getAllNiveaux() {
-    return prisma.niveau.findMany();
+//code ajouter
+  static async getAllNiveaux(skip = 0, take = 10) {
+    // return prisma.niveau.findMany();
+     return prisma.niveau.findMany({
+      skip,
+      take,
+    });
   }
 
   static async getNiveauById(id: number) {

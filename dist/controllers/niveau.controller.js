@@ -15,7 +15,9 @@ export class NiveauController {
         }
     }
     static async getAll(req, res) {
-        const niveaux = await NiveauService.getAllNiveaux();
+        //j'ai ajouter ça 
+        const { skip = 0, limit = 10 } = req.pagination || {};
+        const niveaux = await NiveauService.getAllNiveaux(skip, limit);
         return res.json(formatSuccess(niveaux));
     }
     static async getOne(req, res) {
