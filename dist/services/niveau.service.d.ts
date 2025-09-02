@@ -5,7 +5,7 @@ export declare class NiveauService {
         libelle: string;
         rang: number;
     }>;
-    static getAllNiveaux(skip?: number, take?: number): Promise<{
+    static getAllNiveaux(skip?: number, take?: number, orderBy?: string, order?: "asc" | "desc"): Promise<{
         id: number;
         libelle: string;
         rang: number;

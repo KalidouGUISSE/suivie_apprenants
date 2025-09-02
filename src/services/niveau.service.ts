@@ -10,12 +10,19 @@ export class NiveauService {
       },
     });
   }
-//code ajouter
-  static async getAllNiveaux(skip = 0, take = 10) {
-    // return prisma.niveau.findMany();
-     return prisma.niveau.findMany({
+//j'ai ajouter ça
+  static async getAllNiveaux(
+    skip = 0,
+    take = 10,
+    orderBy = "id",
+    order: "asc" | "desc" = "asc"
+  ) {
+    return prisma.niveau.findMany({
       skip,
       take,
+      orderBy: {
+        [orderBy]: order,
+      },
     });
   }
 
