@@ -10,14 +10,13 @@ async function main() {
     { libelle: "Avancé", rang: 3 },
   ];
 
-    for (const n of niveauxData) {
-        await prisma.niveau.upsert({
-            where: { libelle: n.libelle }, // libelle est unique
-            update: {},
-            create: n,
-        });
-    }
-
+  for (const n of niveauxData) {
+      await prisma.niveau.upsert({
+          where: { libelle: n.libelle }, // libelle est unique
+          update: {},
+          create: n,
+      });
+  }
 
   // 2. Seed Profils
   const profilsData = [
