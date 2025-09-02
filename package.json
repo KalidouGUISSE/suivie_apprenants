@@ -6,8 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon --watch src --exec node --loader ts-node/esm ./src/server.ts",
-    "build": "tsc -w",
-    "start": "node dist/server.js"
+
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "seed": "ts-node --esm dist/seed.js"
   },
   "keywords": [],
   "author": "",
@@ -32,9 +34,9 @@
   "dependencies": {
     "@prisma/client": "^6.15.0",
     "bcrypt": "^6.0.0",
+    "jsonwebtoken": "^9.0.2",
     "dotenv": "^17.2.1",
     "express": "^5.1.0",
-    "jsonwebtoken": "^9.0.2",
     "zod": "^4.1.5"
   }
 }
