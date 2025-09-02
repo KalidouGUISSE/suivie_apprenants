@@ -1,6 +1,6 @@
 import { z } from "zod";
 export declare const schemaAuth: z.ZodObject<{
-    login: z.ZodString;
+    email: z.ZodString;
     password: z.ZodString;
 }, z.core.$strip>;
 //# sourceMappingURL=auth.validator.d.ts.map
