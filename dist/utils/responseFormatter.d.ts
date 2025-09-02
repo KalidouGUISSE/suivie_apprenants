@@ -1,7 +1,9 @@
-export declare const formatSuccess: (data: object | null, code?: number, message?: string) => {
+import { HttpStatus } from "../enums/httpStatus.js";
+import { SMS, KEY } from "../enums/sms.js";
+export declare const formatSuccess: (data: object | null, code?: HttpStatus, message?: string) => {
     data: object | null;
     statut: string;
-    code: number;
+    code: HttpStatus;
     message: string;
 };
 export declare const formatError: (code: number, message: string) => {
@@ -10,4 +12,5 @@ export declare const formatError: (code: number, message: string) => {
     code: number;
     message: string;
 };
+export declare function buildMessage(key: KEY, sms: SMS): string;
 //# sourceMappingURL=responseFormatter.d.ts.map

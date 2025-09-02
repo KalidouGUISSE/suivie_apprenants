@@ -1,8 +1,8 @@
 export declare class UserService {
     static create(data: any): Promise<{
         profil: {
-            libelle: string;
             id: number;
+            libelle: string;
         };
     } & {
         id: number;
@@ -20,8 +20,8 @@ export declare class UserService {
     }>;
     static getAll(): Promise<({
         profil: {
-            libelle: string;
             id: number;
+            libelle: string;
         };
     } & {
         id: number;
@@ -39,8 +39,8 @@ export declare class UserService {
     })[]>;
     static getOne(id: number): Promise<({
         profil: {
-            libelle: string;
             id: number;
+            libelle: string;
         };
     } & {
         id: number;
@@ -58,8 +58,8 @@ export declare class UserService {
     }) | null>;
     static update(id: number, data: any): Promise<{
         profil: {
-            libelle: string;
             id: number;
+            libelle: string;
         };
     } & {
         id: number;
@@ -77,8 +77,8 @@ export declare class UserService {
     }>;
     static delete(id: number): Promise<{
         profil: {
-            libelle: string;
             id: number;
+            libelle: string;
         };
     } & {
         id: number;

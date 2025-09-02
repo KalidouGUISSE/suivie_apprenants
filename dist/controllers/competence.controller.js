@@ -1,13 +1,15 @@
 import { CompetenceService } from "../services/competence.service.js";
-import { formatSuccess, formatError } from "../utils/responseFormatter.js";
+import { formatSuccess, formatError, buildMessage } from "../utils/responseFormatter.js";
+import { HttpStatus } from "../enums/httpStatus.js";
+import { SMS, KEY } from "../enums/sms.js";
 export class CompetenceController {
     static async create(req, res) {
         try {
             const competence = await CompetenceService.createCompetence(req.body);
-            return res.status(201).json(formatSuccess(competence, 201, "Promo créée avec succès"));
+            return res.status(HttpStatus.CREATED).json(formatSuccess(competence, HttpStatus.CREATED, buildMessage(KEY.COMPETENCE, SMS.CREATED_SUCCESS)));
         }
         catch (err) {
-            return res.status(500).json(formatError(500, err.message || "Erreur serveur"));
+            return res.status(HttpStatus.INTERNAL_SERVER_ERROR).json(formatError(HttpStatus.INTERNAL_SERVER_ERROR, err.message || SMS.SERVER_ERROR));
         }
     }
     static async getAll(req, res) {
@@ -17,35 +19,35 @@ export class CompetenceController {
     static async getOne(req, res) {
         const competence = await CompetenceService.getCompetenceById(Number(req.params.id));
         if (!competence)
-            return res.status(404).json(formatError(404, "Competence non trouvée"));
+            return res.status(HttpStatus.NOT_FOUND).json(formatError(HttpStatus.NOT_FOUND, buildMessage(KEY.COMPETENCE, SMS.NOT_FOUND)));
         return res.json(formatSuccess(competence));
     }
     static async update(req, res) {
         try {
             const promo = await CompetenceService.updateCompetence(Number(req.params.id), req.body);
-            return res.json(formatSuccess(promo, 200, "Competence mise à jour"));
+            return res.json(formatSuccess(promo, HttpStatus.OK, buildMessage(KEY.COMPETENCE, SMS.UPDATED_SUCCESS)));
         }
         catch (err) {
-            return res.status(400).json(formatError(400, err.message || "Erreur mise à jour"));
+            return res.status(HttpStatus.BAD_REQUEST).json(formatError(HttpStatus.BAD_REQUEST, err.message || SMS.SERVER_ERROR));
         }
     }
     static async delete(req, res) {
         try {
             await CompetenceService.deleteCompetence(Number(req.params.id));
-            return res.json(formatSuccess(null, 200, "Competence supprimée"));
+            return res.json(formatSuccess(null, HttpStatus.OK, buildMessage(KEY.COMPETENCE, SMS.DELETED_SUCCESS)));
         }
         catch {
-            return res.status(404).json(formatError(404, "Competence non trouvée"));
+            return res.status(HttpStatus.NOT_FOUND).json(formatError(HttpStatus.NOT_FOUND, buildMessage(KEY.COMPETENCE, SMS.NOT_FOUND)));
         }
     }
     static async getNiveaux(req, res) {
         try {
             const id = Number(req.params.id);
             const niveaux = await CompetenceService.getNiveauxByCompetenceId(id);
-            res.json({ data: niveaux, statut: "success", code: 200 });
+            res.json({ data: niveaux, statut: KEY.SUCCESS, code: HttpStatus.OK });
         }
         catch (err) {
-            res.status(404).json({ data: null, statut: "error", code: 404, message: err.message });
+            res.status(HttpStatus.NOT_FOUND).json({ data: null, statut: KEY.ERROR, code: HttpStatus.NOT_FOUND, message: err.message });
         }
     }
 }
