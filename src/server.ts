@@ -1,5 +1,5 @@
 import express from "express";
-
+import dotenv from "dotenv";
 
 import niveauRoutes from "./routes/niveau.routes.js";
 
@@ -16,9 +16,11 @@ import refentielRoutes from "./routes/referentiel.route.js"
 import profilSortieRoutes from "./routes/profilSortie.routes.js";
 
 import profileRoute from "./routes/profil.routes.js";
+import AuthRoute from "./routes/auth.route.js";
 
 const app = express();
 
+dotenv.config();
 app.use(express.json());
 
 
@@ -40,6 +42,7 @@ app.use("/competences", competenceRoutes)
 app.use("/referentiels",refentielRoutes)
 
 app.use("/profiles",profileRoute)
+app.use("/login",AuthRoute)
 
 // app.get("/", (req,res) =>{
 //     res.send('kali');
