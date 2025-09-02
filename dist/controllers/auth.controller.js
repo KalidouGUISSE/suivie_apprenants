@@ -4,7 +4,8 @@ export class AuthController {
     static async login(req, res) {
         try {
             const { email, password } = req.body;
-            const tokens = AuthService.login(email, password);
+            const tokens = await AuthService.login(email, password);
+            console.log('tokens depuis controller', tokens);
             return res.json(formatSuccess(tokens));
         }
         catch (error) {

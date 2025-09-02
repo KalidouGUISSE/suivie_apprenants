@@ -14,7 +14,10 @@ export class AuthService {
         // const isMatch = bcrypt.compare(password,user.password);
         // if(!isMatch) throw new Error("Mot de passe incorrect");
         const accessToken = jwt.sign({ userId: user.id, email: user.email, role: user.role }, ACCESS_SECRET, { expiresIn: "1h" });
-        const refreshToken = jwt.sign({ userId: user.id, email: user.email }, REFRESH_SECRET, { expiresIn: "24h" });
+        const refreshToken = jwt.sign({
+            userId: user.id,
+            email: user.email
+        }, REFRESH_SECRET, { expiresIn: "24h" });
         return { accessToken, refreshToken };
     }
 }

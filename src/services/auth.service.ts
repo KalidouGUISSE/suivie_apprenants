@@ -21,11 +21,17 @@ export class AuthService
              { expiresIn: "1h" }
         )
         const refreshToken = jwt.sign(
-            {userId:user.id,email:user.email},
+            {
+                userId:user.id,
+                email:user.email
+            },
             REFRESH_SECRET,
             {expiresIn:"24h"}
 
         )
+       
+
+        
         return {accessToken,refreshToken}
     }
 }

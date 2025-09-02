@@ -35,27 +35,16 @@ model Promo {
   updatedAt DateTime @updatedAt
 }
 
-<<<<<<< HEAD
 model Tag {
   id Int @id @default(autoincrement())
   nom String @unique
 }
-=======
 
 model Referentiel {
   id           Int           @id @default(autoincrement())
   libelle      String
   competences  Competence[]  @relation("ReferentielCompetences")
 }
-
-
-
-
-
-
-
-
-
 
 
 
@@ -91,4 +80,3 @@ model Profil {
   users   Users[]
 }
 
->>>>>>> b740146ba7ae6d4c7a94ed85bc4b833fdeac2338

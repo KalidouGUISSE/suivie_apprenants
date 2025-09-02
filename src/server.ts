@@ -61,6 +61,7 @@ app.use("/competences", competenceRoutes)
 app.use("/referentiels",refentielRoutes)
 
 app.use("/profiles",profileRoute)
+
 app.use("/login",AuthRoute)
 
 // app.get("/", (req,res) =>{
