@@ -2,43 +2,43 @@ import type { CreatePromoInput } from "../validators/promo.validator.js";
 export declare class PromoService {
     static createPromo(data: CreatePromoInput): Promise<{
         libelle: string;
-        dateDebut: Date;
-        dateFin: Date;
+        id: number;
         createdAt: Date;
         updatedAt: Date;
-        id: number;
+        dateDebut: Date;
+        dateFin: Date;
     }>;
     static getAllPromos(): Promise<{
         libelle: string;
-        dateDebut: Date;
-        dateFin: Date;
+        id: number;
         createdAt: Date;
         updatedAt: Date;
-        id: number;
+        dateDebut: Date;
+        dateFin: Date;
     }[]>;
     static getPromoById(id: number): Promise<{
         libelle: string;
-        dateDebut: Date;
-        dateFin: Date;
+        id: number;
         createdAt: Date;
         updatedAt: Date;
-        id: number;
+        dateDebut: Date;
+        dateFin: Date;
     } | null>;
     static updatePromo(id: number, data: CreatePromoInput): Promise<{
         libelle: string;
-        dateDebut: Date;
-        dateFin: Date;
+        id: number;
         createdAt: Date;
         updatedAt: Date;
-        id: number;
+        dateDebut: Date;
+        dateFin: Date;
     }>;
     static deletePromo(id: number): Promise<{
         libelle: string;
-        dateDebut: Date;
-        dateFin: Date;
+        id: number;
         createdAt: Date;
         updatedAt: Date;
-        id: number;
+        dateDebut: Date;
+        dateFin: Date;
     }>;
 }
 //# sourceMappingURL=promo.service.d.ts.map

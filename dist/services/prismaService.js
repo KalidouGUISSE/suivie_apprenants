@@ -1,5 +1,5 @@
 import { PrismaClient } from "@prisma/client";
-// import type { PrismaClient } from "../generated/prisma";
 const prisma = new PrismaClient();
+// import type { PrismaClient } from "../generated/prisma";
 export default prisma;
 //# sourceMappingURL=prismaService.js.map

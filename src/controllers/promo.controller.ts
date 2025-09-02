@@ -2,7 +2,7 @@ import type { Request, Response } from "express";
 import { PromoService } from "../services/promo.service.js";
 import { formatSuccess, formatError } from "../utils/responseFormatter.js";
 
-export class PromoController   {
+export class PromoController{
   static async create(req: Request, res: Response) {
     try {
       const promo = await PromoService.createPromo(req.body);
