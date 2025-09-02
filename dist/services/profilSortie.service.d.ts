@@ -1,24 +1,24 @@
 import type { CreateProfilSortieInput } from "../validators/profilSortie.validator.js";
 export declare class ProfilSortieService {
     static create(data: CreateProfilSortieInput): Promise<{
-        libelle: string;
         id: number;
+        libelle: string;
     }>;
     static getAll(): Promise<{
-        libelle: string;
         id: number;
+        libelle: string;
     }[]>;
     static getById(id: number): Promise<{
-        libelle: string;
         id: number;
+        libelle: string;
     } | null>;
     static update(id: number, data: CreateProfilSortieInput): Promise<{
-        libelle: string;
         id: number;
+        libelle: string;
     }>;
     static delete(id: number): Promise<{
-        libelle: string;
         id: number;
+        libelle: string;
     }>;
 }
 //# sourceMappingURL=profilSortie.service.d.ts.map
