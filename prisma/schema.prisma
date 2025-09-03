@@ -28,7 +28,7 @@ model Niveau {
 }
 model Promo {
   id        Int      @id @default(autoincrement())
-  libelle   String
+  libelle   String @unique
   dateDebut DateTime
   dateFin   DateTime
   createdAt DateTime @default(now())
@@ -38,15 +38,16 @@ model Promo {
 
 model Referentiel {
   id           Int           @id @default(autoincrement())
-  libelle      String
+  libelle      String @unique
   competences  Competence[]  @relation("ReferentielCompetences")
 }
 
 
 model ProfilSortie {
   id      Int    @id @default(autoincrement())
-  libelle String
+  libelle String @unique
 }
+
 
 
 model Users {
@@ -57,21 +58,25 @@ model Users {
   login     String   @unique
   password  String
   telephone String?
-  role      String
   adresse   String?
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  // relation avec Profil
   profilId  Int
   profil    Profil   @relation(fields: [profilId], references: [id])
 }
 
-model Profil {
-  id      Int      @id @default(autoincrement())
-  libelle String   @unique
 
-  // 1 profil peut avoir plusieurs users
-  users   Users[]
+
+model Profil {
+  id          Int           @id @default(autoincrement())
+  libelle     String        @unique
+  users       Users[]
+  permissions Permission[]  @relation("ProfilPermissions")
 }
 
+model Permission {
+  id      Int      @id @default(autoincrement())
+  action  String   @unique
+  profils Profil[] @relation("ProfilPermissions")
+}

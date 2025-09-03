@@ -1,7 +1,10 @@
-import {z} from "zod"
+import { z } from "zod";
+
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export const schemaAuth = z.object({
-    login:z.string().email({message:"Email Invalide"}),
-    password :z.string().min(6, { message: "Mot de passe trop court" })
-})
-
+  email: z.string()
+    .regex(emailRegex, { message: "Email invalide" }),
+  password: z.string()
+    .min(6, { message: "Mot de passe trop court" })
+});

@@ -12,7 +12,6 @@ export declare class UserService {
         login: string;
         password: string;
         telephone: string | null;
-        role: string;
         adresse: string | null;
         createdAt: Date;
         updatedAt: Date;
@@ -31,7 +30,6 @@ export declare class UserService {
         login: string;
         password: string;
         telephone: string | null;
-        role: string;
         adresse: string | null;
         createdAt: Date;
         updatedAt: Date;
@@ -50,7 +48,6 @@ export declare class UserService {
         login: string;
         password: string;
         telephone: string | null;
-        role: string;
         adresse: string | null;
         createdAt: Date;
         updatedAt: Date;
@@ -69,7 +66,6 @@ export declare class UserService {
         login: string;
         password: string;
         telephone: string | null;
-        role: string;
         adresse: string | null;
         createdAt: Date;
         updatedAt: Date;
@@ -88,7 +84,6 @@ export declare class UserService {
         login: string;
         password: string;
         telephone: string | null;
-        role: string;
         adresse: string | null;
         createdAt: Date;
         updatedAt: Date;
