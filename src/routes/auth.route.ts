@@ -7,4 +7,7 @@ const router = Router();
 
 router.post("/", validateBody(schemaAuth), AuthController.login);
 
+// POST /auth/refresh
+router.post("/refresh", AuthController.refreshToken);
+
 export default router;

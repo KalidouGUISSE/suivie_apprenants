@@ -6,6 +6,11 @@ export var Message;
     Message["NOT_FOUND"] = "non trouv\u00E9e";
     Message["SERVER_ERROR"] = "Erreur serveur";
     Message["UPDATE_ERROR"] = "Erreur mise \u00E0 jour";
+    Message["IDENTIFIANTS_INVALIDE"] = "Identifiants invalides";
+    Message["REFREAH_TOKEN_MANQANT"] = "Refresh token manquant";
+    Message["REFREAH_TOKEN_INVALIDE"] = "Refresh token invalide";
+    Message["USER_NOT_FOUND"] = "Utilisateur introuvable";
+    Message["TOKEN_INVALIDE_OR_EXPIRE"] = "Refresh token invalide ou expir\u00E9";
 })(Message || (Message = {}));
 export var KEY;
 (function (KEY) {
@@ -13,5 +18,11 @@ export var KEY;
     KEY["COMPETENCE"] = "Competence";
     KEY["SUCCESS"] = "success";
     KEY["ERROR"] = "error";
+    KEY["PRODUCTION"] = "production";
 })(KEY || (KEY = {}));
+export var ExpiresIn;
+(function (ExpiresIn) {
+    ExpiresIn["_1H"] = "1h";
+    ExpiresIn["_24H"] = "24h";
+})(ExpiresIn || (ExpiresIn = {}));
 //# sourceMappingURL=Message.js.map

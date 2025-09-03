@@ -6,10 +6,10 @@ export declare class UserService {
         };
     } & {
         id: number;
-        nom: string;
-        prenom: string;
         email: string;
         login: string;
+        nom: string;
+        prenom: string;
         password: string;
         telephone: string | null;
         role: string;
@@ -25,10 +25,10 @@ export declare class UserService {
         };
     } & {
         id: number;
-        nom: string;
-        prenom: string;
         email: string;
         login: string;
+        nom: string;
+        prenom: string;
         password: string;
         telephone: string | null;
         role: string;
@@ -44,10 +44,10 @@ export declare class UserService {
         };
     } & {
         id: number;
-        nom: string;
-        prenom: string;
         email: string;
         login: string;
+        nom: string;
+        prenom: string;
         password: string;
         telephone: string | null;
         role: string;
@@ -63,10 +63,10 @@ export declare class UserService {
         };
     } & {
         id: number;
-        nom: string;
-        prenom: string;
         email: string;
         login: string;
+        nom: string;
+        prenom: string;
         password: string;
         telephone: string | null;
         role: string;
@@ -82,10 +82,10 @@ export declare class UserService {
         };
     } & {
         id: number;
-        nom: string;
-        prenom: string;
         email: string;
         login: string;
+        nom: string;
+        prenom: string;
         password: string;
         telephone: string | null;
         role: string;

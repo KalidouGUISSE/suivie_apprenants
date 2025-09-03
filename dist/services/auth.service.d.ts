@@ -3,5 +3,6 @@ export declare class AuthService {
         accessToken: string;
         refreshToken: string;
     }>;
+    static refreshAccessToken(refreshToken: string): Promise<string>;
 }
 //# sourceMappingURL=auth.service.d.ts.map

@@ -44,7 +44,7 @@ app.use("/referentiels",refentielRoutes)
 
 app.use("/profiles",profileRoute)
 
-app.use("/login",AuthRoute)
+app.use("/auth",AuthRoute)
 
 // app.get("/", (req,res) =>{
 //     res.send('kali');
