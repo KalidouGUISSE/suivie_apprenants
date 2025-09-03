@@ -1,4 +1,4 @@
-/* import type{ Request, Response, NextFunction } from "express";
+import type{ Request, Response, NextFunction } from "express";
 import prisma from "../services/prismaService.js";
 
 export const authorize =
@@ -26,4 +26,3 @@ export const authorize =
       res.status(500).json({ error: "Erreur serveur" });
     }
   };
- */
