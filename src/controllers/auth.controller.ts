@@ -1,22 +1,51 @@
 import { AuthService } from "../services/auth.service.js";
 import type { Request,Response } from "express";
 import { formatSuccess, formatError } from "../utils/responseFormatter.js";
-
+import { HttpStatus } from "../enums/httpStatus.js";
+import { KEY, Message } from "../enums/Message.js";
+import { CookieHelper } from "../utils/cookieHelper.js";
 
 export class AuthController {
-    static async login(req:Request,res:Response){
-        try {
-            const {email,password} = req.body
-           
-            const tokens = await AuthService.login(email,password)
-            console.log('tokens depuis controller',tokens);
-            
-            return res.json(formatSuccess(tokens))
-        } catch (error) 
+    static async login(req:Request,res:Response)
+    {
+        try 
         {
-            return res.json(formatError(401, "Identifiants invalides"))
-        }
+            const {email,password} = req.body
 
+            const { accessToken, refreshToken } = await AuthService.login(email, password);
+
+            // ✅ Utilisation du helper
+            CookieHelper.setRefreshToken(res, refreshToken);
+
+            return res.status(HttpStatus.OK).json(formatSuccess({ accessToken, refreshToken }));
+        } 
+        catch (error) 
+        {
+            return res.json(formatError(HttpStatus.UNAUTHORIZED,Message.IDENTIFIANTS_INVALIDE))
+        }
+    }
+
+    static async refreshToken(req: Request, res: Response) {
+        try 
+        {
+            const { refreshToken } = req.body;
+
+            if (!refreshToken) res.status(HttpStatus.BAD_REQUEST).json(formatError(HttpStatus.BAD_REQUEST, Message.REFREAH_TOKEN_MANQANT));
+
+            const newAccessToken = await AuthService.refreshAccessToken(refreshToken);
+
+            return res.json(formatSuccess({ accessToken: newAccessToken }));
+        } 
+        catch (error: any) 
+        {
+            return res.status(HttpStatus.UNAUTHORIZED).json(formatError(HttpStatus.UNAUTHORIZED, error.message || Message.REFREAH_TOKEN_INVALIDE));
+        }
+    }
+
+    //fonction pour la deconnection
+    static async logout(req: Request, res: Response) {
+        CookieHelper.clearRefreshToken(res);
+        return res.status(HttpStatus.OK).json(formatSuccess({ message: "Déconnexion réussie" }));
     }
 
 }
